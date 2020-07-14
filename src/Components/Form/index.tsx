@@ -15,19 +15,13 @@ const Form: React.FC = () => {
 
    const [{ values }, { input }] = useForm({ initialValues, onChange: true })
 
-   useEffect(() => {
-      console.log(values)
-   }, [values])
-
    const save = (e: any) => {
       e.preventDefault()
-      firebase.auth().signInAnonymously().then((e) => {
-      })
 
-
-      firebase.database().ref(`pdi`).push({ pdi: values })
+      firebase.firestore().collection(`pdi`).add({ pdi: values })
          .then(resp => console.log(resp))
          .catch(err => console.log(err))
+
    }
 
    return (

@@ -6,13 +6,10 @@ import { Home } from 'Views/Home';
 import firebase from 'firebase';
 
 
-function App() {
+firebase.initializeApp({
 
-  useEffect(() => {
-    firebase.initializeApp({
-      ...
-    })
-  })
+})
+function App() {
 
   return (
     <ThemeProvider theme={customTheme}>
